@@ -6,7 +6,8 @@ Explain steps simply, one click at a time. Prices are in US dollars.
 
 ## The project
 - React 19 + Vite. Source in `src/`, static files in `public/`.
-- Live at https://brewlablb.com (Netlify project `brewlab-lb`, deployed by dragging the `prototype/` folder).
+- Live at https://brewlablb.com (Netlify project `brewlab-lb`). Netlify builds from GitHub on every push to main
+  (settings in `netlify.toml`: `npm run build:prototype`, publish `prototype/`, Node 22).
 - `npm run dev` → http://localhost:5173. `npm run build:prototype` → single-file site in `prototype/` (copies `public/`).
 - Bilingual English/Arabic (RTL). All visible text lives in `src/i18n.jsx` (`UI`, `NAMES`, `WORDS`) or the
   component's own `T`/`L` table. Every new string needs both languages.
@@ -41,8 +42,8 @@ Run `npm run build:prototype` and make sure it builds without errors.
 - If this folder isn't a git repository yet, connect it first: `git init -b main`,
   `git remote add origin https://github.com/hadicharif/brewlab-website.git`, `git fetch origin`,
   `git reset origin/main` (keeps the local files), then commit and push any differences.
-- Tell Hadi when a change is pushed. Pushing to GitHub does not update brewlablb.com: that still needs
-  `npm run build:prototype` and the `prototype` folder dragged into Netlify (until Netlify is connected to GitHub).
+- Tell Hadi when a change is pushed. A push to main also updates brewlablb.com about a minute later (Netlify
+  builds it), so make sure the build passes before pushing.
 
 ## What's been built so far (handed over from the Claude chat)
 - Menu + Build a drink + WhatsApp ordering; sticky category filter with "All"; Spanish lattes; Nestle (free) and
@@ -65,4 +66,3 @@ Run `npm run build:prototype` and make sure it builds without errors.
 - Google Analytics not installed yet: Hadi will send a Measurement ID (G-…); add it, track order sent / sign-up /
   reward used, and mention it in privacy.html.
 - "Powered by Netlify" badge only goes away on a paid Netlify plan (or by moving hosting to Cloudflare Pages).
-- Idea: connect Netlify to the GitHub repo so pushes deploy automatically.

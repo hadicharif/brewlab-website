@@ -1,0 +1,7 @@
+# Netlify builds and publishes the site from GitHub on every push to main.
+[build]
+  command = "npm run build:prototype"
+  publish = "prototype"
+
+[build.environment]
+  NODE_VERSION = "22"
