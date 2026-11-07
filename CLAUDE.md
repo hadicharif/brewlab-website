@@ -33,6 +33,17 @@ check both English and Arabic, phone and desktop, after changes.
 ## Before saying something is done
 Run `npm run build:prototype` and make sure it builds without errors.
 
+## Git: every change goes to GitHub, on main
+- Repository: https://github.com/hadicharif/brewlab-website (private). Hadi wants **every** change saved there.
+- After each finished change (and a successful build), commit straight to the **main** branch with a short, plain
+  message (e.g. "Add Spanish latte", "Fix footer on mobile") and push. No separate branches or pull requests.
+- Never commit `node_modules/`, `prototype/`, `dist/`, `.env` files or any secret key (`.gitignore` covers these).
+- If this folder isn't a git repository yet, connect it first: `git init -b main`,
+  `git remote add origin https://github.com/hadicharif/brewlab-website.git`, `git fetch origin`,
+  `git reset origin/main` (keeps the local files), then commit and push any differences.
+- Tell Hadi when a change is pushed. Pushing to GitHub does not update brewlablb.com: that still needs
+  `npm run build:prototype` and the `prototype` folder dragged into Netlify (until Netlify is connected to GitHub).
+
 ## What's been built so far (handed over from the Claude chat)
 - Menu + Build a drink + WhatsApp ordering; sticky category filter with "All"; Spanish lattes; Nestle (free) and
   Spanish flavours; add-ons priced (flavour/shot/cream/decaf $1, almond/oat $1.50, skimmed/lactose-free free);
