@@ -58,11 +58,13 @@ Run `npm run build:prototype` and make sure it builds without errors.
   Staff (roles), History. Social media role sees Promos only.
 - Footer: WhatsApp, Instagram (@brewlab.lb), feedback link. Privacy page mentions phone numbers and the offers opt-in.
 
+## Done at launch (7 Nov 2026)
+- Google sign-in published; Supabase Auth URLs set to https://brewlablb.com; all SQL files run; test data cleared.
+
 ## Open items
-- Google sign-in is still in "Testing" mode in Google Cloud: publish it (Branding: home page https://brewlablb.com,
-  privacy https://brewlablb.com/privacy.html, authorized domain brewlablb.com) so anyone can use Google sign-in.
-- Supabase Auth → URL Configuration should have Site URL https://brewlablb.com and redirect https://brewlablb.com/**
-  (keep http://localhost:5173/** for testing).
 - Google Analytics not installed yet: Hadi will send a Measurement ID (G-…); add it, track order sent / sign-up /
   reward used, and mention it in privacy.html.
+- More menu photos (upload from Edit website → Menu).
+- Ideas: QR poster for the counter/tables, local search details for Google ("coffee Tripoli"), daily sales summary on
+  the staff page, monthly database backup, a short rewards-terms page.
 - "Powered by Netlify" badge only goes away on a paid Netlify plan (or by moving hosting to Cloudflare Pages).
