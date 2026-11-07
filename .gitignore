@@ -1,0 +1,16 @@
+# dependencies
+node_modules/
+
+# build output (rebuilt with npm run build / npm run build:prototype)
+dist/
+prototype/
+
+# Mac and editor files
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# secrets: never commit these
+.env
+.env.*
