@@ -10,9 +10,11 @@ import { LangProvider } from './i18n'
 import { RewardsProvider } from './RewardsContext'
 import { ContentProvider } from './ContentContext'
 import { applyContent, readCache } from './data/content'
+import { startAnalytics } from './lib/analytics'
 
 // open with the owners' last saved changes (refreshed from the database right after)
 applyContent(readCache() || {})
+startAnalytics()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

@@ -62,9 +62,11 @@ Run `npm run build:prototype` and make sure it builds without errors.
 - Google sign-in published; Supabase Auth URLs set to https://brewlablb.com; all SQL files run; test data cleared.
 
 ## Open items
-- Google Analytics not installed yet: Hadi will send a Measurement ID (G-…); add it, track order sent / sign-up /
-  reward used, and mention it in privacy.html.
+- Google Analytics code is in place (`src/lib/analytics.js`, events order_sent / sign_up / reward_redeemed, off on
+  #staff and #editor) but off until `GA_ID` in `src/config.js` is set to Hadi's G-… ID. When it's set, add a line
+  about Google Analytics to public/privacy.html (EN + AR).
 - More menu photos (upload from Edit website → Menu).
-- Ideas: QR poster for the counter/tables, local search details for Google ("coffee Tripoli"), daily sales summary on
-  the staff page, monthly database backup, a short rewards-terms page.
+- Google search details are in index.html (CafeOrCoffeeShop data, title, description) plus public/robots.txt and
+  public/sitemap.xml. If the opening hours change in the editor, update `openingHoursSpecification` in index.html too.
+- Ideas: daily sales summary on the staff page, monthly database backup, a short rewards-terms page.
 - "Powered by Netlify" badge only goes away on a paid Netlify plan (or by moving hosting to Cloudflare Pages).

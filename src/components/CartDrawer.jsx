@@ -9,6 +9,7 @@ import { MiniMark } from './KeyVisual'
 import BestSellers, { useSuggestions } from './BestSellers'
 import { useRewards } from '../RewardsContext'
 import { prettyPhone } from '../lib/phone'
+import { track } from '../lib/analytics'
 import { supabase, withTimeout } from '../lib/supabase'
 
 const CUSTOMER_KEY = 'brewlab-customer'
@@ -167,6 +168,7 @@ export default function CartDrawer({ open, onClose }) {
     if (win) { try { win.opener = null; win.location.href = url } catch { win = null } }
     if (!win) { try { window.open(url, '_blank', 'noopener') } catch { /* blocked */ } }
 
+    track('order_sent', { currency: 'USD', value: total ?? subtotal ?? 0, items: lines.length, order_type: form.type, member: !!rewards.account })
     const pts = orderNo && rewards.account && total != null ? rewards.pointsFor(total) : 0
     setPlaced({ no: orderNo, pts })
     if (orderNo) rewards.refresh?.()

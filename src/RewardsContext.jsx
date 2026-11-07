@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import { track } from './lib/analytics'
 import { supabase } from './lib/supabase'
 import { POINTS_PER_DOLLAR, rewardTiers as fallbackTiers, BIRTHDAY_WINDOW_DAYS, WELCOME_POINTS } from './data/rewards'
 
@@ -142,11 +143,12 @@ export function RewardsProvider({ children }) {
         const { error } = await supabase.from('profiles').update({ name, phone, whatsapp_offers: !!offers }).eq('id', session.user.id)
         if (error) throw new Error(error.message)
         if (birthday) await rpc('set_birthday', { p_birthday: birthday })
+        if (!profile?.name) track('sign_up')
         await loadAccount()
       },
       updateBirthday: async (birthday) => { await rpc('set_birthday', { p_birthday: birthday }); await loadAccount() },
-      redeem: async (tierId) => { const c = await rpc('redeem_reward', { p_tier_id: tierId }); await loadAccount(); return c },
-      redeemBirthday: async () => { const c = await rpc('redeem_birthday'); await loadAccount(); return c },
+      redeem: async (tierId) => { const c = await rpc('redeem_reward', { p_tier_id: tierId }); track('reward_redeemed', { reward: tierId }); await loadAccount(); return c },
+      redeemBirthday: async () => { const c = await rpc('redeem_birthday'); track('reward_redeemed', { reward: 'birthday' }); await loadAccount(); return c },
       signOut: () => supabase.auth.signOut(),
     }
   }, [open, status, session, profile, history, tiers, settings, loadAccount])
