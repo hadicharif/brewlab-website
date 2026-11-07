@@ -38,6 +38,9 @@ Run `npm run build:prototype` and make sure it builds without errors.
 - Repository: https://github.com/hadicharif/brewlab-website (private). Hadi wants **every** change saved there.
 - After each finished change (and a successful build), commit straight to the **main** branch with a short, plain
   message (e.g. "Add Spanish latte", "Fix footer on mobile") and push. No separate branches or pull requests.
+- Commits must be authored only by Hadi (Hadi Charif <hadicharif1234@gmail.com>) and must NOT include
+  "Co-Authored-By" lines or any other co-author: Netlify's free plan blocks builds from private repos when a commit
+  has a second contributor ("Build blocked: Unrecognized Git contributor").
 - Never commit `node_modules/`, `prototype/`, `dist/`, `.env` files or any secret key (`.gitignore` covers these).
 - If this folder isn't a git repository yet, connect it first: `git init -b main`,
   `git remote add origin https://github.com/hadicharif/brewlab-website.git`, `git fetch origin`,
