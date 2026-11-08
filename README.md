@@ -89,3 +89,5 @@ I designed the product from the shop's real needs, and made the product and data
 ---
 
 Hadi Charif · [GitHub](https://github.com/hadicharif) · hadicharif1234@gmail.com
+
+© Brew Lab Coffee Beacon. The code is shared for viewing. The Brew Lab name, logo and photos may not be reused.
